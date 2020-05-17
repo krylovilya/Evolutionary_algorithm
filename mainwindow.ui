@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>449</width>
-    <height>496</height>
+    <height>532</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -133,7 +133,7 @@
     <property name="geometry">
      <rect>
       <x>30</x>
-      <y>140</y>
+      <y>180</y>
       <width>401</width>
       <height>141</height>
      </rect>
@@ -193,7 +193,7 @@
 к бесконечности</string>
      </property>
      <property name="checked">
-      <bool>true</bool>
+      <bool>false</bool>
      </property>
     </widget>
     <widget class="QCheckBox" name="checkBox_3">
@@ -236,7 +236,7 @@
     <property name="geometry">
      <rect>
       <x>30</x>
-      <y>290</y>
+      <y>330</y>
       <width>121</width>
       <height>41</height>
      </rect>
@@ -249,7 +249,7 @@
     <property name="geometry">
      <rect>
       <x>30</x>
-      <y>350</y>
+      <y>390</y>
       <width>401</width>
       <height>121</height>
      </rect>
@@ -340,7 +340,7 @@
     <property name="geometry">
      <rect>
       <x>160</x>
-      <y>290</y>
+      <y>330</y>
       <width>271</width>
       <height>41</height>
      </rect>
@@ -348,6 +348,44 @@
     <property name="text">
      <string>Вывод в консоль
 (замедляет вычисления)</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_12">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>130</y>
+      <width>211</width>
+      <height>18</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Размер популяции</string>
+    </property>
+   </widget>
+   <widget class="QSpinBox" name="spinBox_2">
+    <property name="geometry">
+     <rect>
+      <x>240</x>
+      <y>130</y>
+      <width>71</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+    </property>
+    <property name="minimum">
+     <number>50</number>
+    </property>
+    <property name="maximum">
+     <number>10000</number>
+    </property>
+    <property name="singleStep">
+     <number>100</number>
+    </property>
+    <property name="value">
+     <number>100</number>
     </property>
    </widget>
   </widget>

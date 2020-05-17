@@ -56,7 +56,7 @@ class Individual:
 
 
 class Population:
-    def __init__(self, n=100):
+    def __init__(self, n):
         self.n = n
         self.vector = []
 
@@ -81,8 +81,9 @@ class Population:
 
 
 class Algorithm:
-    def __init__(self, crossover_chance, mutation_chance, stop_criterion, print_to_console):
-        self.pop = Population()
+    def __init__(self, crossover_chance, mutation_chance, stop_criterion, print_to_console, population_size):
+        self.pop = Population(population_size)
+        self.population_size = population_size
         self.pop.gen_start_pop()
         self.stop_criterion = stop_criterion
         self.crossover_chance = crossover_chance
@@ -102,7 +103,7 @@ class Algorithm:
             sum_ranks += i + 1
         new_fitness = OrderedDict({fitness[key][0]: fitness[key][1] for key in fitness})
         n = [round(2 * ((new_fitness[key] - 1) / (self.pop.n - 1))) for key in new_fitness]
-        new_population = Population()
+        new_population = Population(self.population_size)
         fitness_iter = reversed(new_fitness)
         for _n in list(reversed(n)):
             current_obj = next(fitness_iter)
@@ -117,7 +118,7 @@ class Algorithm:
     def single_point_crossover(self):
         old_population = self.pop
         old_population.vector = random.sample(old_population.vector, len(old_population.vector))
-        new_population = Population()
+        new_population = Population(self.population_size)
         pairs = list(zip(old_population.vector[:int(self.pop.n / 2)], old_population.vector[int(self.pop.n / 2):]))
         for pair in pairs:
             do_crossover = random.random() <= self.crossover_chance
@@ -194,6 +195,7 @@ class MainApp(QtWidgets.QMainWindow, mainwindow.Ui_MainWindow):
         self.pushButton.setEnabled(False)
         crossover_chance = self.doubleSpinBox.value() / 100
         mutation_chance = self.doubleSpinBox_2.value() / 100
+        population_size = self.spinBox_2.value()
         stop_criterion = []
         if self.checkBox.isChecked():
             stop_criterion.append(self.spinBox.value())
@@ -209,7 +211,7 @@ class MainApp(QtWidgets.QMainWindow, mainwindow.Ui_MainWindow):
             self.pushButton.setEnabled(True)
             return
         print_to_console = self.checkBox_4.isChecked()
-        a = Algorithm(crossover_chance, mutation_chance, stop_criterion, print_to_console)
+        a = Algorithm(crossover_chance, mutation_chance, stop_criterion, print_to_console, population_size)
         result = a.start()
         if print_to_console:
             print("\n 1 значение: номер популяции\n",
