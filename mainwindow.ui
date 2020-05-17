@@ -151,7 +151,7 @@
       </rect>
      </property>
      <property name="text">
-      <string>100 поколений без улучшений</string>
+      <string>20 поколений без улучшений</string>
      </property>
      <property name="checked">
       <bool>true</bool>
@@ -176,7 +176,7 @@
       <number>10</number>
      </property>
      <property name="value">
-      <number>100</number>
+      <number>20</number>
      </property>
     </widget>
     <widget class="QCheckBox" name="checkBox_2">

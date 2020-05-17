@@ -59,7 +59,7 @@ class Ui_MainWindow(object):
         self.spinBox.setMinimum(10)
         self.spinBox.setMaximum(10000)
         self.spinBox.setSingleStep(10)
-        self.spinBox.setProperty("value", 100)
+        self.spinBox.setProperty("value", 20)
         self.spinBox.setObjectName("spinBox")
         self.checkBox_2 = QtWidgets.QCheckBox(self.groupBox)
         self.checkBox_2.setGeometry(QtCore.QRect(20, 60, 371, 41))
@@ -122,7 +122,7 @@ class Ui_MainWindow(object):
         self.label_4.setText(_translate("MainWindow", "%"))
         self.label_5.setText(_translate("MainWindow", "Вероятность мутации"))
         self.groupBox.setTitle(_translate("MainWindow", "Критерии останова"))
-        self.checkBox.setText(_translate("MainWindow", "100 поколений без улучшений"))
+        self.checkBox.setText(_translate("MainWindow", "20 поколений без улучшений"))
         self.checkBox_2.setText(_translate("MainWindow", "функция приспособленности стремиться\n"
 "к бесконечности"))
         self.checkBox_3.setText(_translate("MainWindow", "2.0 сек. процессорного времени"))
