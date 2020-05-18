@@ -2,28 +2,28 @@
 <ui version="4.0">
  <class>MainWindow</class>
  <widget class="QMainWindow" name="MainWindow">
-     <property name="geometry">
-         <rect>
-             <x>0</x>
-             <y>0</y>
-             <width>455</width>
-             <height>532</height>
-         </rect>
-     </property>
-     <property name="font">
-         <font>
-             <pointsize>12</pointsize>
-         </font>
-     </property>
-     <property name="windowTitle">
-         <string>MainWindow</string>
-     </property>
-     <widget class="QWidget" name="centralwidget">
-         <widget class="QLabel" name="label">
-             <property name="geometry">
-                 <rect>
-                     <x>30</x>
-                     <y>30</y>
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1134</width>
+    <height>620</height>
+   </rect>
+  </property>
+  <property name="font">
+   <font>
+    <pointsize>12</pointsize>
+   </font>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>30</y>
       <width>421</width>
       <height>18</height>
      </rect>
@@ -138,7 +138,7 @@
     <property name="geometry">
      <rect>
       <x>30</x>
-      <y>180</y>
+      <y>270</y>
       <width>401</width>
       <height>141</height>
      </rect>
@@ -241,7 +241,7 @@
     <property name="geometry">
      <rect>
       <x>30</x>
-      <y>330</y>
+      <y>420</y>
       <width>121</width>
       <height>41</height>
      </rect>
@@ -254,7 +254,7 @@
     <property name="geometry">
      <rect>
       <x>30</x>
-      <y>390</y>
+      <y>480</y>
       <width>401</width>
       <height>121</height>
      </rect>
@@ -280,7 +280,7 @@
       <rect>
        <x>270</x>
        <y>30</y>
-       <width>101</width>
+       <width>121</width>
        <height>18</height>
       </rect>
      </property>
@@ -306,7 +306,7 @@
       <rect>
        <x>270</x>
        <y>60</y>
-       <width>101</width>
+       <width>121</width>
        <height>18</height>
       </rect>
      </property>
@@ -343,12 +343,12 @@
    </widget>
    <widget class="QCheckBox" name="checkBox_4">
     <property name="geometry">
-        <rect>
-            <x>160</x>
-            <y>330</y>
-            <width>206</width>
-            <height>44</height>
-        </rect>
+     <rect>
+      <x>160</x>
+      <y>420</y>
+      <width>231</width>
+      <height>44</height>
+     </rect>
     </property>
     <property name="text">
      <string>Вывод в консоль
@@ -393,8 +393,96 @@
      <number>100</number>
     </property>
    </widget>
+   <widget class="PlotWidget" name="graphicsView">
+    <property name="geometry">
+     <rect>
+      <x>460</x>
+      <y>20</y>
+      <width>651</width>
+      <height>581</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QGroupBox" name="groupBox_3">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>159</y>
+      <width>401</width>
+      <height>101</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>График</string>
+    </property>
+    <widget class="QCheckBox" name="checkBox_5">
+     <property name="geometry">
+      <rect>
+       <x>220</x>
+       <y>30</y>
+       <width>31</width>
+       <height>24</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="checked">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_13">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>30</y>
+       <width>121</width>
+       <height>18</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Лог. шкала</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_14">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>60</y>
+       <width>121</width>
+       <height>18</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Символы</string>
+     </property>
+    </widget>
+    <widget class="QCheckBox" name="checkBox_6">
+     <property name="geometry">
+      <rect>
+       <x>220</x>
+       <y>60</y>
+       <width>31</width>
+       <height>24</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="checked">
+      <bool>false</bool>
+     </property>
+    </widget>
+   </widget>
   </widget>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>PlotWidget</class>
+   <extends>QGraphicsView</extends>
+   <header>pyqtgraph</header>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections>
   <connection>
@@ -405,7 +493,7 @@
    <hints>
     <hint type="sourcelabel">
      <x>140</x>
-     <y>318</y>
+     <y>420</y>
     </hint>
     <hint type="destinationlabel">
      <x>162</x>
@@ -421,7 +509,7 @@
    <hints>
     <hint type="sourcelabel">
      <x>356</x>
-     <y>182</y>
+     <y>300</y>
     </hint>
     <hint type="destinationlabel">
      <x>434</x>
@@ -436,12 +524,44 @@
    <slot>time_spinbox_changed(double)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>341</x>
-     <y>245</y>
+     <x>350</x>
+     <y>370</y>
     </hint>
     <hint type="destinationlabel">
      <x>434</x>
      <y>102</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_5</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>change_scale(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>259</x>
+     <y>205</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>303</x>
+     <y>179</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_6</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>change_symbol(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>280</x>
+     <y>230</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>444</x>
+     <y>260</y>
     </hint>
    </hints>
   </connection>
@@ -450,5 +570,7 @@
   <slot>button_click()</slot>
   <slot>spinbox_changed(int)</slot>
   <slot>time_spinbox_changed(double)</slot>
+  <slot>change_scale(bool)</slot>
+  <slot>change_symbol(bool)</slot>
  </slots>
 </ui>

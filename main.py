@@ -93,6 +93,8 @@ class Algorithm:
         self.unchanged = 0
         self.time = None
         self.print_to_console = print_to_console
+        self.data_for_graph1 = []
+        self.data_for_graph2 = []
 
     def rank_selection(self):
         old_population = self.pop
@@ -180,6 +182,14 @@ class Algorithm:
                     self.unchanged = 0
                 else:
                     self.unchanged += 1
+                _mean = self.pop.get_mean()
+                _max = self.pop.get_max()
+                if np.isinf(_mean):
+                    _mean = 1e10
+                if np.isinf(_max):
+                    _max = 1e10
+                self.data_for_graph1.append(_mean)
+                self.data_for_graph2.append(_max)
             else:
                 result = self.pop.vector[np.argmax(map(Individual.fitness_function, self.pop.vector))]
                 break
@@ -190,6 +200,12 @@ class MainApp(QtWidgets.QMainWindow, mainwindow.Ui_MainWindow):
     def __init__(self):
         super().__init__()
         self.setupUi(self)
+        self.legend = None
+        self.a = None
+        self.graphicsView.setLabel('left', "Функция приспособленности ")
+        self.graphicsView.setLabel('bottom', "Номер популяции")
+        self.graphicsView.setLogMode(y=True)
+        self.graphicsView.enableAutoRange('xy', True)
 
     def button_click(self):
         self.pushButton.setEnabled(False)
@@ -211,8 +227,8 @@ class MainApp(QtWidgets.QMainWindow, mainwindow.Ui_MainWindow):
             self.pushButton.setEnabled(True)
             return
         print_to_console = self.checkBox_4.isChecked()
-        a = Algorithm(crossover_chance, mutation_chance, stop_criterion, print_to_console, population_size)
-        result = a.start()
+        self.a = Algorithm(crossover_chance, mutation_chance, stop_criterion, print_to_console, population_size)
+        result = self.a.start()
         if print_to_console:
             print("\n 1 значение: номер популяции\n",
                   "2 значение: количество поколений без улучшений\n",
@@ -220,15 +236,37 @@ class MainApp(QtWidgets.QMainWindow, mainwindow.Ui_MainWindow):
                   "4 значение: индивид со средним значением функции приспособленности в популяции\n",
                   "5 значение: индивид с максимальным значением функции приспособленности в популяции\n")
         self.label_7.setText(str(result)[1:-1])
-        self.label_9.setText(str(a.iter))
-        self.label_11.setText(str(round(time.time() - a.time, 4)) + " с.")
+        self.label_9.setText(str(self.a.iter))
+        self.label_11.setText(str(round(time.time() - self.a.time, 4)) + " с.")
         self.pushButton.setEnabled(True)
+        self.draw(self.checkBox_6.isChecked())
+
+    def draw(self, symbol=False):
+        symbol_dict2, symbol_dict1 = {}, {}
+        if symbol:
+            symbol_dict2 = {'symbol': "o", 'symbolBrush': (255, 0, 0), 'symbolSize': 10}
+            symbol_dict1 = {'symbol': "o", 'symbolBrush': (0, 0, 255), 'symbolSize': 10}
+        self.graphicsView.clear()
+        if self.legend:
+            self.legend.scene().removeItem(self.legend)
+        y1 = self.a.data_for_graph1
+        y2 = self.a.data_for_graph2
+        self.legend = self.graphicsView.addLegend()
+        self.graphicsView.plot(x=np.arange(self.a.iter), y=y2, pen=(255, 0, 0), name="макс. знач.", **symbol_dict2)
+        self.graphicsView.plot(x=np.arange(self.a.iter), y=y1, pen=(0, 0, 255), name="ср. знач.", **symbol_dict1)
 
     def spinbox_changed(self, new_val):
         self.checkBox.setText(new_val.__str__() + " поколений без улучшений")
 
     def time_spinbox_changed(self, new_val):
         self.checkBox_3.setText(str(new_val) + " сек. процессорного времени")
+
+    def change_scale(self, val):
+        self.graphicsView.setLogMode(y=val)
+
+    def change_symbol(self, val):
+        if self.a:
+            self.draw(val)
 
 
 def main():
