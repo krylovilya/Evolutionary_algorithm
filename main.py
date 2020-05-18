@@ -252,8 +252,10 @@ class MainApp(QtWidgets.QMainWindow, mainwindow.Ui_MainWindow):
         y1 = self.a.data_for_graph1
         y2 = self.a.data_for_graph2
         self.legend = self.graphicsView.addLegend()
-        self.graphicsView.plot(x=np.arange(self.a.iter), y=y2, pen=(255, 0, 0), name="макс. знач.", **symbol_dict2)
-        self.graphicsView.plot(x=np.arange(self.a.iter), y=y1, pen=(0, 0, 255), name="ср. знач.", **symbol_dict1)
+        with warnings.catch_warnings():
+            warnings.simplefilter("ignore")
+            self.graphicsView.plot(x=np.arange(self.a.iter), y=y2, pen=(255, 0, 0), name="макс. знач.", **symbol_dict2)
+            self.graphicsView.plot(x=np.arange(self.a.iter), y=y1, pen=(0, 0, 255), name="ср. знач.", **symbol_dict1)
 
     def spinbox_changed(self, new_val):
         self.checkBox.setText(new_val.__str__() + " поколений без улучшений")
