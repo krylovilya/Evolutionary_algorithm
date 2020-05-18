@@ -2,23 +2,28 @@
 <ui version="4.0">
  <class>MainWindow</class>
  <widget class="QMainWindow" name="MainWindow">
-  <property name="geometry">
-   <rect>
-    <x>0</x>
-    <y>0</y>
-    <width>449</width>
-    <height>532</height>
-   </rect>
-  </property>
-  <property name="windowTitle">
-   <string>MainWindow</string>
-  </property>
-  <widget class="QWidget" name="centralwidget">
-   <widget class="QLabel" name="label">
-    <property name="geometry">
-     <rect>
-      <x>30</x>
-      <y>30</y>
+     <property name="geometry">
+         <rect>
+             <x>0</x>
+             <y>0</y>
+             <width>455</width>
+             <height>532</height>
+         </rect>
+     </property>
+     <property name="font">
+         <font>
+             <pointsize>12</pointsize>
+         </font>
+     </property>
+     <property name="windowTitle">
+         <string>MainWindow</string>
+     </property>
+     <widget class="QWidget" name="centralwidget">
+         <widget class="QLabel" name="label">
+             <property name="geometry">
+                 <rect>
+                     <x>30</x>
+                     <y>30</y>
       <width>421</width>
       <height>18</height>
      </rect>
@@ -338,12 +343,12 @@
    </widget>
    <widget class="QCheckBox" name="checkBox_4">
     <property name="geometry">
-     <rect>
-      <x>160</x>
-      <y>330</y>
-      <width>271</width>
-      <height>41</height>
-     </rect>
+        <rect>
+            <x>160</x>
+            <y>330</y>
+            <width>206</width>
+            <height>44</height>
+        </rect>
     </property>
     <property name="text">
      <string>Вывод в консоль

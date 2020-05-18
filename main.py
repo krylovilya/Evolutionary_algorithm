@@ -232,6 +232,7 @@ class MainApp(QtWidgets.QMainWindow, mainwindow.Ui_MainWindow):
 
 
 def main():
+    print("launch Qt5...")
     app = QtWidgets.QApplication(sys.argv)
     window = MainApp()
     window.show()

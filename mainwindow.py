@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'mainwindow.ui'
 #
-# Created by: PyQt5 UI code generator 5.13.2
+# Created by: PyQt5 UI code generator 5.14.2
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -13,7 +13,10 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(449, 532)
+        MainWindow.resize(455, 532)
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        MainWindow.setFont(font)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.label = QtWidgets.QLabel(self.centralwidget)
@@ -103,7 +106,7 @@ class Ui_MainWindow(object):
         self.label_11.setText("")
         self.label_11.setObjectName("label_11")
         self.checkBox_4 = QtWidgets.QCheckBox(self.centralwidget)
-        self.checkBox_4.setGeometry(QtCore.QRect(160, 330, 271, 41))
+        self.checkBox_4.setGeometry(QtCore.QRect(160, 330, 206, 44))
         self.checkBox_4.setObjectName("checkBox_4")
         self.label_12 = QtWidgets.QLabel(self.centralwidget)
         self.label_12.setGeometry(QtCore.QRect(30, 130, 211, 18))
